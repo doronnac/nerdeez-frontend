@@ -12,4 +12,3 @@ Static.Router = Ember.Router.extend({
     })
   })
 });
-
