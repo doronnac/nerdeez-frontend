@@ -10,10 +10,11 @@ var Nerdeez = Ember.Application.create({
 	rootElement: '#wrap',
 });
 
-readyFunction = function() {
+/*readyFunction = function() {
 	console.log('readyFunction');
 	Nerdeez. ,
 }
+Nerdeez.set('readyFunction', readyFunction);*/
 
 /**********************************************************************
  * End application init
