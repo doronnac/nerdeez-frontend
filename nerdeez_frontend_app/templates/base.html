@@ -10,10 +10,9 @@
     <script src="{{STATIC_URL}}app/scripts/vendor/modernizr.min.js"></script>
     
     <!-- Le styles -->
-   
     <link href="{{STATIC_URL}}app/styles/stylesheets/main.css" rel="stylesheet">
     <link rel="stylesheet" href="{{STATIC_URL}}app/styles/stylesheets/font-awesome.min.css" />
-
+    
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="{{STATIC_URL}}app/components/bootstrap-sass/docs/assets/js/html5shiv.js"></script>
@@ -29,47 +28,45 @@
 
   <body>
   	
-  	     <!-- begin gloabal variables -->
+  	 <!-- begin gloabal variables -->
      <script type="text/javascript">
-     var STATIC_URL = '{{STATIC_URL}}';
+     	var STATIC_URL = '{{STATIC_URL}}';
      </script>
      <!-- end global variables -->
-        
-        <!-- Begin loading screen -->
-        <div class="glass" style="z-index: 100;" id="loadingball">
-            <div class="loading"
-                 style="left: 50%;position: absolute;top: 50%;">
-            </div>
-        </div>
-        <!-- End loading screen -->
-        <script src="{{STATIC_URL}}app/scripts/vendor/jquery.min.js"></script>
+     
+     <script src="{{STATIC_URL}}app/scripts/vendor/jquery.min.js"></script>
 
-      <hr>
+	<div id="wrap">
 
-		<div id="wrap">
-		</div>
+	<div id="push"></div>
+	</div>
 
-      <footer>
-        <div class="container">
-        	<p>Footer should be sticky</p>
-        </div>
-      </footer>
-
-    </div> <!-- /container -->
+    <div id="footer">
+      <div class="container">
+        <p class="muted credit">Example courtesy <a href="http://martinbean.co.uk">Martin Bean</a> and <a href="http://ryanfait.com/sticky-footer/">Ryan Fait</a>.</p>
+      </div>
+    </div>
 
     <!-- Le javascript
     ================================================== -->
+    <!-- build:js scripts/scripts.js -->
     <!-- Handlebars -->
     <script src="{{STATIC_URL}}app/scripts/vendor/handlebars.js"></script>
     <!-- Ember -->
     <script src="{{STATIC_URL}}app/scripts/vendor/ember-1.0.0-rc.3.js"></script>
     <script src="{{STATIC_URL}}app/scripts/vendor/ember-data-latest.js"></script>
+    <!-- Porthole -->
+    <script src="{{STATIC_URL}}app/scripts/vendor/porthole.min.js"></script>
+    
     <script src="{{STATIC_URL}}app/scripts/main.js"></script>
+    <script src="{{STATIC_URL}}app/scripts/models/application-model.js"></script>
     <script src="{{STATIC_URL}}app/scripts/store.js"></script>
+    <script type="text/javascript" src="//api.filepicker.io/v1/filepicker.js"></script>
     <script src="{{STATIC_URL}}app/scripts/routes/app-router.js"></script>
     <script src="{{STATIC_URL}}app/scripts/controllers/application-controller.js"></script>
     <script src="{{STATIC_URL}}app/scripts/views/application-view.js"></script>
     
+    <!-- build:js scripts/plugins.js -->
     <!-- Bootstrap -->
     <script src="{{STATIC_URL}}app/scripts/vendor/bootstrap/bootstrap-affix.js"></script>
     <script src="{{STATIC_URL}}app/scripts/vendor/bootstrap/bootstrap-alert.js"></script>
@@ -84,8 +81,6 @@
     <script src="{{STATIC_URL}}app/scripts/vendor/bootstrap/bootstrap-tooltip.js"></script>
     <script src="{{STATIC_URL}}app/scripts/vendor/bootstrap/bootstrap-transition.js"></script>
     <script src="{{STATIC_URL}}app/scripts/vendor/bootstrap/bootstrap-typeahead.js"></script>
-    <!-- Porthole -->
-    <script src="{{STATIC_URL}}app/scripts/vendor/porthole.min.js"></script>
 	<!-- endbuild -->
 	
   </body>
