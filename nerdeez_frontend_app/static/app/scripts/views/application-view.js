@@ -44,4 +44,6 @@ Nerdeez.ApplicationView = Nerdeez.NerdeezView.extend({
   	templateName: 'application'
 });
 
-
+Nerdeez.HeaderView = Nerdeez.NerdeezView.extend({
+	templateName: 'header'
+});
