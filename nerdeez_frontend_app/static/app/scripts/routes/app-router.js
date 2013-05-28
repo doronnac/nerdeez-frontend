@@ -37,21 +37,10 @@ Nerdeez.NerdeezRoute = Ember.Route.extend({
      renderTemplate: function(){
          this._super();
          this.render('header', {outlet: 'header', into: 'application'});
+         this.render('footer', {outlet: 'footer', into: 'application'});
      }     
 });
 
-
-/**
-* render the application view
-*/
 Nerdeez.IndexRoute = Nerdeez.NerdeezRoute.extend({
-    /**
-	* this function will render the home view template
-	*/
-    /*renderTemplate: function(){
-        console.log('IndexRoute renderTemplate function');
-        this.render('home');
-    }*/
+	
 });
-
-

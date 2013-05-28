@@ -47,3 +47,7 @@ Nerdeez.ApplicationView = Nerdeez.NerdeezView.extend({
 Nerdeez.HeaderView = Nerdeez.NerdeezView.extend({
 	templateName: 'header'
 });
+
+Nerdeez.FooterView = Nerdeez.NerdeezView.extend({
+	templateName: 'footer'
+});

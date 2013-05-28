@@ -13778,9 +13778,11 @@ a.label:hover, a.badge:hover {
 /* line 9, ../sass/main.scss */
 html, body {
   height: 100%;
+  /* The html and body elements cannot have any padding or margin. */
 }
 
-/* line 12, ../sass/main.scss */
+/* Wrapper for page content to push down footer */
+/* line 15, ../sass/main.scss */
 #wrap {
   min-height: 100%;
   height: auto !important;
@@ -13789,13 +13791,74 @@ html, body {
   margin: 0 auto -60px;
 }
 
-/* line 22, ../sass/main.scss */
+/* Set the fixed height of the footer here */
+/* line 25, ../sass/main.scss */
 #push,
 #footer {
   height: 60px;
 }
 
-/* line 25, ../sass/main.scss */
+/* line 28, ../sass/main.scss */
 #footer {
   background-color: #f5f5f5;
+}
+
+/* Lastly, apply responsive CSS fixes as necessary */
+@media (max-width: 767px) {
+  /* line 34, ../sass/main.scss */
+  #footer {
+    margin-left: -20px;
+    margin-right: -20px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+/* line 42, ../sass/main.scss */
+#wrap > .container {
+  padding-top: 60px;
+}
+
+/* line 46, ../sass/main.scss */
+.container .credit {
+  margin: 20px 0;
+}
+
+/* line 50, ../sass/main.scss */
+code {
+  font-size: 80%;
+}
+
+/* line 54, ../sass/main.scss */
+.clearfix1:after {
+  content: ".";
+  clear: both;
+  display: block;
+  height: 0;
+  visibility: hidden;
+}
+
+/* line 61, ../sass/main.scss */
+.clearfix1 {
+  display: inline-block;
+}
+
+/* line 64, ../sass/main.scss */
+.clearfix1 {
+  display: block;
+}
+
+/* line 68, ../sass/main.scss */
+.clearfix2 {
+  overflow: hidden;
+}
+
+/* line 72, ../sass/main.scss */
+.clearfix3 {
+  clear: both;
+}
+
+/* line 76, ../sass/main.scss */
+.clearfix4 {
+  clear: both;
+  /*or left*/
 }
