@@ -48,9 +48,16 @@ Nerdeez.HeaderView = Nerdeez.NerdeezView.extend({
 	templateName: 'header'
 });
 
-Nerdeez.FooterView = Nerdeez.NerdeezView.extend({
-	templateName: 'footer'
-});
-Nerdeez.SearchView = Nerdeez.NerdeezView.extend({
-	templateName: 'search'
+Nerdeez.BodyView = Nerdeez.NerdeezView.extend({
+	templateName: 'body'
+})
+
+/**
+* footer route is not used for now
+* Nerdeez.FooterView = Nerdeez.NerdeezView.extend({
+*	 templateName: 'footer'
+*});
+*/
+Nerdeez.SearchuniversityView = Nerdeez.NerdeezView.extend({
+	templateName: 'searchuniversity'
 });

@@ -4,7 +4,8 @@
  *********************************************************************/
 
 var Nerdeez = Ember.Application.create({
-	server_url: 'https://nerdeez-backend-dev.herokuapp.com',
+	//server_url: SERVER_URL,
+	server_url: 'https://nerdeez-backend-dev.herokuapp.com/',
 	rootElement: '#wrap',
 });
 

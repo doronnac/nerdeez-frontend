@@ -4,6 +4,8 @@
 */
 Nerdeez.Router.map(function(match) {
     this.route('index', {path: '/'});
+    this.route('body', {path: '/body'});
+    this.route('searchuniversity', {path: '/search-university'});
 });
 
 /**
@@ -37,10 +39,30 @@ Nerdeez.NerdeezRoute = Ember.Route.extend({
      renderTemplate: function(){
          this._super();
          this.render('header', {outlet: 'header', into: 'application'});
-         this.render('footer', {outlet: 'footer', into: 'application'});
+         /**
+         * footer is in base.html for now
+         * this.render('footer', {outlet: 'footer', into: 'application'});
+         */
      }     
 });
 
 Nerdeez.IndexRoute = Nerdeez.NerdeezRoute.extend({
 	
+});
+
+Nerdeez.BodyRoute = Nerdeez.NerdeezRoute.extend({
+	renderTemplate: function() {
+		this._super();
+		this.render('body', {outlet: 'body', into: 'application'});
+	}
+});
+
+Nerdeez.SearchuniversityRoute = Nerdeez.NerdeezRoute.extend({
+	renderTemplate: function() {
+		this._super();
+		this.render('searchuniversity', {outlet: 'searchuniversity', into: 'application'});
+	},
+	model: function(param){
+		return Nerdeez.University.find();
+	}
 });

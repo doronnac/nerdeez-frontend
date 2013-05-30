@@ -5,23 +5,10 @@
 Nerdeez.NerdeezModel = DS.Model.extend();
 
 // the model for the university title
-Nerdeez.Title = DS.Model.extend({
-    title: DS.attr('string'),
-});
 
-// the model for the university description
-Nerdeez.Description = DS.Model.extend({
-    title: DS.attr('string'),
-});
 
-// the model for the university image
-Nerdeez.Image = DS.Model.extend({
-    title: DS.attr('string'),
-});
-
-// the model for the university website
-Nerdeez.Website = DS.Model.extend({
-    title: DS.attr('string'),
+Nerdeez.University = Nerdeez.NerdeezModel.extend({
+	title: DS.attr('string')
 });
 
 //used for cross domain communication
