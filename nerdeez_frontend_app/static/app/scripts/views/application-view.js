@@ -51,3 +51,6 @@ Nerdeez.HeaderView = Nerdeez.NerdeezView.extend({
 Nerdeez.FooterView = Nerdeez.NerdeezView.extend({
 	templateName: 'footer'
 });
+Nerdeez.SearchView = Nerdeez.NerdeezView.extend({
+	templateName: 'search'
+});

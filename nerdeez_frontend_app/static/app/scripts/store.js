@@ -8,3 +8,49 @@ Nerdeez.store = DS.Store.create({
     revision : 12
     //adapter : adapter
 });
+
+
+/**
+* define our tastypie adapter and serializer
+*/
+Adapter = DS.DjangoTastypieAdapter.extend({
+    //backend server url
+    serverDomain : Nerdeez.server_url,
+    
+    //our serializer
+    serializer: DS.DjangoTastypieSerializer.extend({
+        
+		/**
+		* all the mappings will be declared here
+		*/
+    }),
+    
+    /**
+	* override the ajax for cross domain communications
+	*/
+    ajax: function (url, type, hash) {
+        pass_data = hash.data;
+        if (type.toLowerCase() == "post" || type.toLowerCase() == "put"){
+            pass_data = JSON.stringify(hash.data);
+        }
+        if(Nerdeez.crossDomain == null)return;
+        Nerdeez.crossDomain.ajax({url: url, type: type, data: pass_data, dataType: 'json', contentType: 'application/json', successFunction: hash.success});
+    },
+    
+    /**
+	* ajax error
+	*/
+    error: function(data){
+        alert('Communication error with backend server');
+    },
+    
+});
+
+
+adapter = Adapter.create();
+
+
+Nerdeez.store = DS.Store.create({
+    revision : 12,
+    adapter : adapter
+});
