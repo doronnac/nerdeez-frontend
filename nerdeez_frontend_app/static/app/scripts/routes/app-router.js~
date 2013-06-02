@@ -1,3 +1,10 @@
+<<<<<<< HEAD
+Nerdeez.Router.map(function() {
+	this.route('home', {path: '/'});
+	this.route("about"); //short for writing ('about', {path:'/about'})
+	this.route("contact");
+})
+=======
 
 /**
 * our state machine
@@ -15,9 +22,9 @@ Nerdeez.Router.map(function(match) {
 Nerdeez.NerdeezRoute = Ember.Route.extend({
 
     /**
-* will extract the url params
-* @param name String the name of the param to extract
-*/
+	* will extract the url params
+	* @param name String the name of the param to extract
+	*/
     getURLParameter: function(name){
         return decodeURI(
             (RegExp(name + '=' + '(.+?)(&|$)').exec(window.location.href)||[,null])[1]
@@ -25,47 +32,45 @@ Nerdeez.NerdeezRoute = Ember.Route.extend({
     },
     
     /**
-* will grab the get params from the url and return a dictionary with the data
-* @returns {Object} dictionary object from the url
-*/
+	* will grab the get params from the url and return a dictionary with the data
+	* @returns {Object} dictionary object from the url
+	*/
     getUrlParamsAsDisctionary: function(){
      var search = location.search.substring(1);
      return JSON.parse('{"' + decodeURI(search.replace(/&/g, "\",\"").replace(/=/g,"\":\"")) + '"}');
     },
     
     /**
-* render common things to all the routes
-*/
+	* render common things to all the routes
+	*/
      renderTemplate: function(){
          this._super();
          this.render('header', {outlet: 'header', into: 'application'});
          /**
-* footer is in base.html for now
-* this.render('footer', {outlet: 'footer', into: 'application'});
-*/
-     }
+         * footer is in base.html for now
+         * this.render('footer', {outlet: 'footer', into: 'application'});
+         */
+     }     
 });
 
 Nerdeez.IndexRoute = Nerdeez.NerdeezRoute.extend({
-
+	
 });
 
 Nerdeez.BodyRoute = Nerdeez.NerdeezRoute.extend({
-renderTemplate: function() {
-this._super();
-this.render('body', {outlet: 'body', into: 'application'});
-}
+	renderTemplate: function() {
+		this._super();
+		this.render('body', {outlet: 'body', into: 'application'});
+	}
 });
 
 Nerdeez.SearchuniversityRoute = Nerdeez.NerdeezRoute.extend({
-renderTemplate: function() {
-this._super();
-this.render('searchuniversity', {outlet: 'searchuniversity', into: 'application'});
-},
-model: function(param){
-return Nerdeez.University.find();
-}
+	renderTemplate: function() {
+		this._super();
+		this.render('searchuniversity', {outlet: 'searchuniversity', into: 'application'});
+	},
+	model: function(param){
+		return Nerdeez.University.find();
+	}
 });
-
-
-
+>>>>>>> a52e6752905dd1e0e85bdd6e0ca2b47db90442dc

@@ -4,16 +4,16 @@
  *********************************************************************/
 
 var Nerdeez = Ember.Application.create({
-	/* uncomment the following line once a server address is given
-	 * server_url: '',
-	 */
+	//server_url: SERVER_URL,
+	server_url: 'https://nerdeez-backend-dev.herokuapp.com/',
 	rootElement: '#wrap',
 });
 
-readyFunction = function() {
+/*readyFunction = function() {
 	console.log('readyFunction');
 	Nerdeez. ,
 }
+Nerdeez.set('readyFunction', readyFunction);*/
 
 /**********************************************************************
  * End application init
