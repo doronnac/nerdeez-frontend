@@ -1,14 +1,5 @@
-Static.Router = Ember.Router.extend({
-  root: Ember.Route.extend({
-    index: Ember.Route.extend({
-      route: '/'
-
-      // You'll likely want to connect a view here.
-      // connectOutlets: function(router) {
-      //   router.get('applicationController').connectOutlet(App.MainView);
-      // }
-
-      // Layout your routes here...
-    })
-  })
-});
+Nerdeez.Router.map(function() {
+	this.route('home', {path: '/'});
+	this.route("about"); //short for writing ('about', {path:'/about'})
+	this.route("contact");
+})
