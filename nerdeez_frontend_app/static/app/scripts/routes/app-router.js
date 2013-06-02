@@ -4,7 +4,7 @@
 */
 Nerdeez.Router.map(function(match) {
     this.route('index', {path: '/'});
-    this.route('body', {path: '/body'});
+    this.route('home', {path: '/home'});
     this.route('searchuniversity', {path: '/search-university'});
 });
 
@@ -53,7 +53,7 @@ Nerdeez.IndexRoute = Nerdeez.NerdeezRoute.extend({
 Nerdeez.BodyRoute = Nerdeez.NerdeezRoute.extend({
 renderTemplate: function() {
 this._super();
-this.render('body', {outlet: 'body', into: 'application'});
+this.render('home', {outlet: 'home', into: 'application'});
 }
 });
 

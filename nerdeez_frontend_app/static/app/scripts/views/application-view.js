@@ -48,7 +48,7 @@ Nerdeez.HeaderView = Nerdeez.NerdeezView.extend({
 	templateName: 'header'
 });
 
-Nerdeez.BodyView = Nerdeez.NerdeezView.extend({
+Nerdeez.HomeView = Nerdeez.NerdeezView.extend({
 	templateName: 'body'
 })
 
