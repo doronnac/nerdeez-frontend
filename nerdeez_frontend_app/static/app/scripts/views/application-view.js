@@ -64,13 +64,7 @@ Nerdeez.SearchuniversityView = Nerdeez.NerdeezView.extend({
 	//@member {Array} holds the content of the combo
 	universityTitleContent: null,
 	
-	//@member {DS.Model}
-	universityTitle: null,
-	
-	//@member {string}
-	description: null,
-	
-	/**
+  	/**
 	 * constructor
 	 */
 	init: function(){
@@ -79,14 +73,15 @@ Nerdeez.SearchuniversityView = Nerdeez.NerdeezView.extend({
 		this.set('universityTitleContent', Nerdeez.University.find());
 	},
 	
-	/**
-	 * when the user clicks to update the universiyt
-	 */
 	updateUniversity: function(){
-		console.log('updateUniversity');
-		university = this.get('universityTitle');
-		university.set('title', this.get('description'));
-		university.transaction.commit();
-	}
-	
+		success = function(){
+			$('#update-status').text('Success!');
+			$('#update-status').fadeIn('normal');	
+		};
+		failure = function(){
+			$('#update-status').text('Failed!');
+			$('#update-status').fadeIn('normal');
+		}
+		this.controller.updateUniversity(success, failure);
+	}	
 });

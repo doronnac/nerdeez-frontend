@@ -6,7 +6,7 @@
 	<hr />
 	
 	{{#if isExpanded}}
-  		<button {{action contract}}>Update University Title</button>
+  		<button {{action contract}}>Modify Universities</button>
   		<hr />
   		
   		<!--<select>
@@ -15,23 +15,28 @@
 			<option value="mercedes">University 2</option>
 			<option value="audi">University 3</option>
 		</select>-->
-		{{
-			view Ember.Select
-			contentBinding="view.universityTitleContent"
-			selectionBinding="view.universityTitle"
-			prompt="Choose a university"
-			optionValuePath="content.id"
-			optionLabelPath="content.title"
-		}} 
-  		<!--<input class="span2" type="text" placeholder="New University Title">-->
-  		{{
-  			view Ember.TextField
-  			valueBinding="view.description"
-  			prompt="New university title"
-  		}}
-  		<button type="submit" class="btn" {{action updateUniversity target="view"}}>Submit</button>
+		<form>
+			{{
+				view Ember.Select
+				contentBinding="view.universityTitleContent"
+				selectionBinding="controller.universityTitle"
+				prompt="Choose a university"
+				optionValuePath="content.id"
+				optionLabelPath="content.title"
+			}} 
+	  		<!--<input class="span2" type="text" placeholder="New University Title">-->
+	  		{{
+	  			view Ember.TextField
+	  			valueBinding="controller.description"
+	  			prompt="New university title"
+	  		}}
+	  		<hr />
+  			<button type="submit" class="btn" {{action updateUniversity target="view"}}>Update Title</button>
+  			<button type="submit" class="btn" {{action deleteUniversity target="view"}}>Delete University</button>
+  			<div id="update-status"></div>
+  		</form>
 	{{else}}
-  		<button {{action expand}}>Update University Title...</button>
+  		<button {{action expand}}>Modify Universities...</button>
 	{{/if}}
 	
 </div>
