@@ -2,4 +2,36 @@
 	{{#each controller}}
 		<div>{{title}}</div>
 	{{/each}}
+	
+	<hr />
+	
+	{{#if isExpanded}}
+  		<button {{action contract}}>Update University Title</button>
+  		<hr />
+  		
+  		<!--<select>
+	  		<option value="volvo">Choose University...</option>
+			<option value="saab">University 1</option>
+			<option value="mercedes">University 2</option>
+			<option value="audi">University 3</option>
+		</select>-->
+		{{
+			view Ember.Select
+			contentBinding="view.universityTitleContent"
+			selectionBinding="view.universityTitle"
+			prompt="Choose a university"
+			optionValuePath="content.id"
+			optionLabelPath="content.title"
+		}} 
+  		<!--<input class="span2" type="text" placeholder="New University Title">-->
+  		{{
+  			view Ember.TextField
+  			valueBinding="view.description"
+  			prompt="New university title"
+  		}}
+  		<button type="submit" class="btn" {{action updateUniversity target="view"}}>Submit</button>
+	{{else}}
+  		<button {{action expand}}>Update University Title...</button>
+	{{/if}}
+	
 </div>

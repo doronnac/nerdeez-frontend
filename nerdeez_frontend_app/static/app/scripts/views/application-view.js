@@ -59,5 +59,34 @@ Nerdeez.HomeView = Nerdeez.NerdeezView.extend({
 *});
 */
 Nerdeez.SearchuniversityView = Nerdeez.NerdeezView.extend({
-	templateName: 'searchuniversity'
+	templateName: 'searchuniversity',
+	
+	//@member {Array} holds the content of the combo
+	universityTitleContent: null,
+	
+	//@member {DS.Model}
+	universityTitle: null,
+	
+	//@member {string}
+	description: null,
+	
+	/**
+	 * constructor
+	 */
+	init: function(){
+		this._super();
+		
+		this.set('universityTitleContent', Nerdeez.University.find());
+	},
+	
+	/**
+	 * when the user clicks to update the universiyt
+	 */
+	updateUniversity: function(){
+		console.log('updateUniversity');
+		university = this.get('universityTitle');
+		university.set('title', this.get('description'));
+		university.transaction.commit();
+	}
+	
 });

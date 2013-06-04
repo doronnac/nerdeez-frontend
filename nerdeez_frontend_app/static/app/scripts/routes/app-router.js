@@ -47,7 +47,10 @@ Nerdeez.NerdeezRoute = Ember.Route.extend({
 });
 
 Nerdeez.IndexRoute = Nerdeez.NerdeezRoute.extend({
-
+	renderTemplate: function() {
+		this._super();
+		this.render('home', {outlet: 'home', into: 'application'});
+	}
 });
 
 Nerdeez.HomeRoute = Nerdeez.NerdeezRoute.extend({
@@ -66,6 +69,3 @@ Nerdeez.SearchuniversityRoute = Nerdeez.NerdeezRoute.extend({
 		return Nerdeez.University.find();
 	}
 });
-
-
-

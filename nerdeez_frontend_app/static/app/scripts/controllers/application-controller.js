@@ -3,5 +3,16 @@ Nerdeez.ApplicationController = Ember.Controller.extend({
 });
 
 Nerdeez.SearchuniversityController = Ember.ArrayController.extend({
-	content: null
+	content: null,
+
+  // initial value
+  isExpanded: false,
+
+  expand: function() {
+    this.set('isExpanded', true);
+  },
+
+  contract: function() {
+    this.set('isExpanded', false);
+  }
 });
