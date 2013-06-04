@@ -50,21 +50,21 @@ Nerdeez.IndexRoute = Nerdeez.NerdeezRoute.extend({
 
 });
 
-Nerdeez.BodyRoute = Nerdeez.NerdeezRoute.extend({
-renderTemplate: function() {
-this._super();
-this.render('home', {outlet: 'home', into: 'application'});
-}
+Nerdeez.HomeRoute = Nerdeez.NerdeezRoute.extend({
+	renderTemplate: function() {
+		this._super();
+		this.render('home', {outlet: 'home', into: 'application'});
+	}
 });
 
 Nerdeez.SearchuniversityRoute = Nerdeez.NerdeezRoute.extend({
-renderTemplate: function() {
-this._super();
-this.render('searchuniversity', {outlet: 'searchuniversity', into: 'application'});
-},
-model: function(param){
-return Nerdeez.University.find();
-}
+	renderTemplate: function() {
+		this._super();
+		this.render('searchuniversity', {outlet: 'searchuniversity', into: 'application'});
+	},
+	model: function(param){
+		return Nerdeez.University.find();
+	}
 });
 
 
