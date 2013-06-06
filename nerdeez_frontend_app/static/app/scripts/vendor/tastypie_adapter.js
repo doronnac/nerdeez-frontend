@@ -83,6 +83,17 @@ DS.DjangoTastypieAdapter = DS.RESTAdapter.extend({
       data: data,
       success: function(json) {
         xthis.didSaveRecord(store, type, record, json);
+      },
+      /**
+       * when ajax fails this function is invoked
+       * 
+       * @method
+       * @param {jqXHR} jqXHR the ajax object
+       * @param {String} textStatus
+       * @param {String} errorThrown
+       */
+      error: function(json, jqXHR){
+      		xthis.didError(store, type, record, jqXHR)
       }
     });
   },

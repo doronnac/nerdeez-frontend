@@ -30,7 +30,7 @@ Adapter = DS.DjangoTastypieAdapter.extend({
             pass_data = JSON.stringify(hash.data);
         }
         if(Nerdeez.crossDomain == null)return;
-        Nerdeez.crossDomain.ajax({url: url, type: type, data: pass_data, dataType: 'json', contentType: 'application/json', successFunction: hash.success});
+        Nerdeez.crossDomain.ajax({url: url, type: type, data: pass_data, dataType: 'json', contentType: 'application/json', successFunction: hash.success, failFunction: hash.error});
     },
     
     /**

@@ -19,7 +19,7 @@
 			{{
 				view Ember.Select
 				contentBinding="view.universityTitleContent"
-				selectionBinding="controller.universityTitle"
+				selectionBinding="controller.universityData"
 				prompt="Choose a university"
 				optionValuePath="content.id"
 				optionLabelPath="content.title"
@@ -32,8 +32,10 @@
 	  		}}
 	  		<hr />
   			<button type="submit" class="btn" {{action updateUniversity target="view"}}>Update Title</button>
-  			<button type="submit" class="btn" {{action deleteUniversity target="view"}}>Delete University</button>
-  			<div id="update-status"></div>
+  			<!--<button type="submit" class="btn" {{action deleteUniversity target="view"}}>Delete University</button>-->
+  			<button type="submit" class="btn" {{action deleteUniversity target="controller"}}>Delete University</button>
+  			<div id="update-status">
+  			</div>
   		</form>
 	{{else}}
   		<button {{action expand}}>Modify Universities...</button>

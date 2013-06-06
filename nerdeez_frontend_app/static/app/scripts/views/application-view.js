@@ -83,5 +83,5 @@ Nerdeez.SearchuniversityView = Nerdeez.NerdeezView.extend({
 			$('#update-status').fadeIn('normal');
 		}
 		this.controller.updateUniversity(success, failure);
-	}	
+	}
 });

@@ -17,7 +17,7 @@ Nerdeez.SearchuniversityController = Ember.ArrayController.extend({
   	},
   
 	//@member {DS.Model}
-	universityTitle: null,
+	universityData: null,
 	
 	//@member {string}
 	description: null,
@@ -29,19 +29,20 @@ Nerdeez.SearchuniversityController = Ember.ArrayController.extend({
 	 */
 	updateUniversity: function(success, failure){
 		console.log('updateUniversity');
-		university = this.get('universityTitle');
+		university = this.get('universityData');
 		university.set('title', this.get('description'));
 		university.transaction.commit();
 		university.one('didUpdate', function(object){
-			console.log('didUpdate');
-			if(!object.get('isError')){
-				success();
-				
-			}
-			else{
-				failure();
-			}
-		})
+			success();
+		});
+		university.one('becameError', function(object){
+			failure();
+		});
 	},
+	
+	deleteUniversity: function(){
+		console.log('deleteUniversity');
+		
+	}
 		
 });

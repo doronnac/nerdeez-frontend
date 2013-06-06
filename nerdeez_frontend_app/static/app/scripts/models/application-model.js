@@ -42,6 +42,7 @@ Nerdeez.Wormhole = Ember.Object.extend({
     nextRequest: 1,
     deferreds: {},
     successFunction: {},
+    failFunction: {},
     // make an ajax request through the porthole
     ajax: function(params) {
         var requestId = this.nextRequest;
@@ -50,6 +51,7 @@ Nerdeez.Wormhole = Ember.Object.extend({
         var deferred = $.Deferred();
         this.deferreds[requestId] = deferred;
         this.successFunction[requestId] = params.successFunction;
+        this.failFunction[requestId] = params.failFunction;
         var request = {requestId: requestId, params: params};
         if (this.linked) {
             this.sendRequest(request);
@@ -89,6 +91,7 @@ Nerdeez.Wormhole = Ember.Object.extend({
         } else {
             deferred.reject(data.textStatus, data.errorThrown);
             //alert('Communication error');
+            this.failFunction[data.requestId](data.data, {status: 500, responseText: 'Server error'});
         }
     }
 });
