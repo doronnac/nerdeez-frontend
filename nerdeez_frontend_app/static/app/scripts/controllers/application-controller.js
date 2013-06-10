@@ -27,22 +27,35 @@ Nerdeez.SearchuniversityController = Ember.ArrayController.extend({
 	 * @param {function} success function
 	 * @param {function} failed fundtion
 	 */
+	
+	/*
+	 * logging failure or success in server transaction
+	 */
+	logStatus: function(university, success, failure){
+		university.on('didUpdate', function(object){
+			success();
+		});
+		university.on('didDelete', function(object){
+			success();
+		});
+		university.on('becameError', function(object){
+			failure();
+		});
+	},
+	
 	updateUniversity: function(success, failure){
 		console.log('updateUniversity');
 		university = this.get('universityData');
 		university.set('title', this.get('description'));
 		university.transaction.commit();
-		university.one('didUpdate', function(object){
-			success();
-		});
-		university.one('becameError', function(object){
-			failure();
-		});
+		this.logStatus(university, success, failure);
 	},
 	
-	deleteUniversity: function(){
+	deleteUniversity: function(success, failure){
 		console.log('deleteUniversity');
-		
+		university = this.get('universityData');
+		university.deleteRecord();
+		university.transaction.commit();
+		this.logStatus(university, success, failure);
 	}
-		
 });

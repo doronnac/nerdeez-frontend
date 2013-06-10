@@ -110,8 +110,20 @@ DS.DjangoTastypieAdapter = DS.RESTAdapter.extend({
     root = this.rootForType(type);
     xthis = this;
     this.ajax(this.buildURL(root, id), "DELETE", {
-      success: function(json) {
-        xthis.didDeleteRecord(store, type, record, json);
+    	data: null,
+      	success: function(json) {
+        	xthis.didDeleteRecord(store, type, record, json);
+      	},
+      /**
+       * when ajax fails this function is invoked
+       * 
+       * @method
+       * @param {jqXHR} jqXHR the ajax object
+       * @param {String} textStatus
+       * @param {String} errorThrown
+       */
+      error: function(json, jqXHR){
+      		xthis.didError(store, type, record, jqXHR)
       }
     });
   },

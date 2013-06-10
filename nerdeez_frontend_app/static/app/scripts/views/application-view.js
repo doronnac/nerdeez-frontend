@@ -61,8 +61,19 @@ Nerdeez.HomeView = Nerdeez.NerdeezView.extend({
 Nerdeez.SearchuniversityView = Nerdeez.NerdeezView.extend({
 	templateName: 'searchuniversity',
 	
-	//@member {Array} holds the content of the combo
+	//@property {Array} holds the content of the combo
 	universityTitleContent: null,
+	
+	//@property {function}
+	success: function(){
+			$('#update-status').text('Success!');
+			$('#update-status').fadeIn('normal');	
+	},
+	//@property {function}
+	failure: function(){
+			$('#update-status').text('Failed!');
+			$('#update-status').fadeIn('normal');
+	},
 	
   	/**
 	 * constructor
@@ -73,15 +84,15 @@ Nerdeez.SearchuniversityView = Nerdeez.NerdeezView.extend({
 		this.set('universityTitleContent', Nerdeez.University.find());
 	},
 	
+	/*
+	 * monitor success or failure in server transactions
+	 */
+	
 	updateUniversity: function(){
-		success = function(){
-			$('#update-status').text('Success!');
-			$('#update-status').fadeIn('normal');	
-		};
-		failure = function(){
-			$('#update-status').text('Failed!');
-			$('#update-status').fadeIn('normal');
-		}
-		this.controller.updateUniversity(success, failure);
+		this.controller.updateUniversity(this.get('success'), this.get('failure'));
+	},
+	
+	deleteUniversity: function(){
+		this.controller.deleteUniversity(this.get('success'), this.get('failure'))
 	}
 });
