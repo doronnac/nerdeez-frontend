@@ -48,5 +48,5 @@ adapter = Adapter.create();
 
 Nerdeez.store = DS.Store.create({
     revision : 12,
-    adapter : adapter
+    adapter: adapter
 });
