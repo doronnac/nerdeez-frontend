@@ -9,7 +9,7 @@ Nerdeez.NerdeezModel = DS.Model.extend();
 
 Nerdeez.University = Nerdeez.NerdeezModel.extend({
 	title: DS.attr('string'),
-	description: DS.attr('string'),
+	//description: DS.attr('string'),
 	
 	fullTitle: function(){
 		return this.get('title') + this.get('description');

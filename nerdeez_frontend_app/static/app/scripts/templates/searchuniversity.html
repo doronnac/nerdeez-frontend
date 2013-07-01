@@ -22,7 +22,7 @@
 				selectionBinding="controller.universityData"
 				prompt="Choose a university"
 				optionValuePath="content.id"
-				optionLabelPath="content.fullTitle"
+				optionLabelPath="content.title"
 			}} 
 	  		<!--<input class="span2" type="text" placeholder="New University Title">-->
 	  		{{
@@ -32,7 +32,7 @@
 	  		}}
 	  		<hr />
   			<button type="submit" class="btn" {{action updateUniversity target="view"}}>Update Title</button>
-  			<!--<button type="submit" class="btn" {{action deleteUniversity target="view"}}>Delete University</button>-->
+  			<button type="submit" class="btn" {{action createUniversity target="controller"}}>Create University</button>
   			<button type="submit" class="btn" {{action deleteUniversity target="controller"}}>Delete University</button>
   			<div id="update-status">
   			</div>
