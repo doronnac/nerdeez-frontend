@@ -8,7 +8,7 @@
 /**
 * all nerdeez viewz will extend this abstract
 */
-Nerdeez.NerdeezView = Ember.View.extend({
+NerdeezFrontend.NerdeezFrontendView = Ember.View.extend({
     
     /**
 	* will load the correct handlebars file
@@ -40,25 +40,25 @@ Nerdeez.NerdeezView = Ember.View.extend({
 /**
 * general application view
 */
-Nerdeez.ApplicationView = Nerdeez.NerdeezView.extend({
+NerdeezFrontend.ApplicationView = NerdeezFrontend.NerdeezFrontendView.extend({
   	templateName: 'application'
 });
 
-Nerdeez.HeaderView = Nerdeez.NerdeezView.extend({
+NerdeezFrontend.HeaderView = NerdeezFrontend.NerdeezFrontendView.extend({
 	templateName: 'header'
 });
 
-Nerdeez.HomeView = Nerdeez.NerdeezView.extend({
+NerdeezFrontend.HomeView = NerdeezFrontend.NerdeezFrontendView.extend({
 	templateName: 'home'
 })
 
 /**
 * footer route is not used for now
-* Nerdeez.FooterView = Nerdeez.NerdeezView.extend({
+* NerdeezFrontend.FooterView = NerdeezFrontend.NerdeezFrontendView.extend({
 *	 templateName: 'footer'
 *});
 */
-Nerdeez.SearchuniversityView = Nerdeez.NerdeezView.extend({
+NerdeezFrontend.SearchuniversityView = NerdeezFrontend.NerdeezFrontendView.extend({
 	templateName: 'searchuniversity',
 	
 	//@property {Array} holds the content of the combo
@@ -81,7 +81,7 @@ Nerdeez.SearchuniversityView = Nerdeez.NerdeezView.extend({
 	init: function(){
 		this._super();
 		
-		this.set('universityTitleContent', Nerdeez.University.find());
+		this.set('universityTitleContent', NerdeezFrontend.University.find());
 	},
 	
 	/*

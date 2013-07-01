@@ -1,8 +1,8 @@
-Nerdeez.ApplicationController = Ember.Controller.extend({
+NerdeezFrontend.ApplicationController = Ember.Controller.extend({
   // Implement your controller here.
 });
 
-Nerdeez.SearchuniversityController = Ember.ArrayController.extend({
+NerdeezFrontend.SearchuniversityController = Ember.ArrayController.extend({
 	content: null,
 
   	// initial value
@@ -64,7 +64,7 @@ Nerdeez.SearchuniversityController = Ember.ArrayController.extend({
 	
 	createUniversity: function(success, failure){
 		console.log('createUniversity');
-		university = Nerdeez.University.createRecord();
+		university = NerdeezFrontend.University.createRecord();
 		university.set('title', this.get('description'));
 		university.transaction.commit();
 		this.logStatus(university, success, failure);

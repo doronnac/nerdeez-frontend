@@ -45,7 +45,6 @@ Adapter = Nerdeez.DjangoTastypieAdapter.extend({
     
 });
 
-
 adapter = Adapter.create();
 
 
