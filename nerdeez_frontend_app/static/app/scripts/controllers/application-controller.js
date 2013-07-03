@@ -1,8 +1,8 @@
-Nerdeez.ApplicationController = Ember.Controller.extend({
+NerdeezFrontend.ApplicationController = Ember.Controller.extend({
   // Implement your controller here.
 });
 
-Nerdeez.SearchuniversityController = Ember.ArrayController.extend({
+NerdeezFrontend.SearchuniversityController = Ember.ArrayController.extend({
 	content: null,
 
   	// initial value
@@ -19,7 +19,7 @@ Nerdeez.SearchuniversityController = Ember.ArrayController.extend({
 	//@member {DS.Model}
 	universityData: null,
 	
-	//@member {string}
+	//@member {string}fullTitle
 	description: null,
 
 	/**
@@ -36,6 +36,9 @@ Nerdeez.SearchuniversityController = Ember.ArrayController.extend({
 			success();
 		});
 		university.on('didDelete', function(object){
+			success();
+		});
+		university.on('didCreate', function(object){
 			success();
 		});
 		university.on('becameError', function(object){
@@ -55,6 +58,14 @@ Nerdeez.SearchuniversityController = Ember.ArrayController.extend({
 		console.log('deleteUniversity');
 		university = this.get('universityData');
 		university.deleteRecord();
+		university.transaction.commit();
+		this.logStatus(university, success, failure);
+	},
+	
+	createUniversity: function(success, failure){
+		console.log('createUniversity');
+		university = NerdeezFrontend.University.createRecord();
+		university.set('title', this.get('description'));
 		university.transaction.commit();
 		this.logStatus(university, success, failure);
 	}

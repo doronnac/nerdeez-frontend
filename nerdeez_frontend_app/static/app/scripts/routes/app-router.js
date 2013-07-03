@@ -2,7 +2,7 @@
 /**
 * our state machine
 */
-Nerdeez.Router.map(function(match) {
+NerdeezFrontend.Router.map(function(match) {
     this.route('index', {path: '/'});
     this.route('home', {path: '/home'});
     this.route('searchuniversity', {path: '/search-university'});
@@ -12,7 +12,7 @@ Nerdeez.Router.map(function(match) {
 * all nerdeez routes will extend this object
 * it will contain common route functions
 */
-Nerdeez.NerdeezRoute = Ember.Route.extend({
+NerdeezFrontend.NerdeezFrontendRoute = Ember.Route.extend({
 
     /**
 * will extract the url params
@@ -46,26 +46,26 @@ Nerdeez.NerdeezRoute = Ember.Route.extend({
      }
 });
 
-Nerdeez.IndexRoute = Nerdeez.NerdeezRoute.extend({
+NerdeezFrontend.IndexRoute = NerdeezFrontend.NerdeezFrontendRoute.extend({
 	renderTemplate: function() {
 		this._super();
 		this.render('home', {outlet: 'home', into: 'application'});
 	}
 });
 
-Nerdeez.HomeRoute = Nerdeez.NerdeezRoute.extend({
+NerdeezFrontend.HomeRoute = NerdeezFrontend.NerdeezFrontendRoute.extend({
 	renderTemplate: function() {
 		this._super();
 		this.render('home', {outlet: 'home', into: 'application'});
 	}
 });
 
-Nerdeez.SearchuniversityRoute = Nerdeez.NerdeezRoute.extend({
+NerdeezFrontend.SearchuniversityRoute = NerdeezFrontend.NerdeezFrontendRoute.extend({
 	renderTemplate: function() {
 		this._super();
 		this.render('searchuniversity', {outlet: 'searchuniversity', into: 'application'});
 	},
 	model: function(param){
-		return Nerdeez.University.find();
+		return NerdeezFrontend.University.find();
 	}
 });

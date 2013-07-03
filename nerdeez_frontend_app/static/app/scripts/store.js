@@ -9,12 +9,15 @@
 /**
 * define our tastypie adapter and serializer
 */
-Adapter = DS.DjangoTastypieAdapter.extend({
+Adapter = Nerdeez.DjangoTastypieAdapter.extend({
     //backend server url
     serverDomain : Nerdeez.server_url,
     
+    //hook for cross-domain communication
+    wormhole: Nerdeez.Wormhole,
+    
     //our serializer
-    serializer: DS.DjangoTastypieSerializer.extend({
+    serializer: Nerdeez.DjangoTastypieSerializer.extend({
         
 		/**
 		* all the mappings will be declared here
@@ -24,7 +27,7 @@ Adapter = DS.DjangoTastypieAdapter.extend({
     /**
 	* override the ajax for cross domain communications
 	*/
-    ajax: function (url, type, hash) {
+ /*   ajax: function (url, type, hash) {
         pass_data = hash.data;
         if (type.toLowerCase() == "post" || type.toLowerCase() == "put"){
             pass_data = JSON.stringify(hash.data);
@@ -32,7 +35,7 @@ Adapter = DS.DjangoTastypieAdapter.extend({
         if(Nerdeez.crossDomain == null)return;
         Nerdeez.crossDomain.ajax({url: url, type: type, data: pass_data, dataType: 'json', contentType: 'application/json', successFunction: hash.success, failFunction: hash.error});
     },
-    
+*/    
     /**
 	* ajax error
 	*/
@@ -42,11 +45,10 @@ Adapter = DS.DjangoTastypieAdapter.extend({
     
 });
 
-
 adapter = Adapter.create();
 
 
 Nerdeez.store = DS.Store.create({
     revision : 12,
-    adapter : adapter
+    adapter: adapter
 });

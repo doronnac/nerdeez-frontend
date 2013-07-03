@@ -2,31 +2,34 @@
 // Requires Ember-Data
 // Static.Application = DS.Model.extend({});
 
-Nerdeez.NerdeezModel = DS.Model.extend();
+NerdeezFrontend.NerdeezFrontendModel = DS.Model.extend();
 
 // the model for the university title
 
 
-Nerdeez.University = Nerdeez.NerdeezModel.extend({
+NerdeezFrontend.University = NerdeezFrontend.NerdeezFrontendModel.extend({
 	title: DS.attr('string'),
-	description: DS.attr('string')
-
+	//description: DS.attr('string'),
+	
+	fullTitle: function(){
+		return this.get('title') + this.get('description');
+	}.property('title', 'description')
 });
 
 //used for cross domain communication
 // frontend
-Nerdeez.Wormhole = Ember.Object.extend({
+/*NerdeezFrontend.Wormhole = Ember.Object.extend({
     init: function() {
         var target = "wormhole_iframe";
  
         // create the iframe
         this.iframe = $('<iframe id="' + target +
             '" name="' + target +
-            '" src="' + Nerdeez.server_url +
+            '" src="' + NerdeezFrontend.server_url +
             '" style="width: 0; height: 0; border: none; display: none;"></iframe>');
             $('body').append(this.iframe);
         // create a porthole.js proxy window to send and receive message from the vault iframe
-        this.windowProxy = new Porthole.WindowProxy(Nerdeez.server_url, target);
+        this.windowProxy = new Porthole.WindowProxy(NerdeezFrontend.server_url, target);
  
         // handle messages based on their type
         var self = this;
@@ -99,5 +102,6 @@ Nerdeez.Wormhole = Ember.Object.extend({
 });
 
 //object used fo rcross domain ajax calls
-Nerdeez.crossDomain = Nerdeez.Wormhole.create();
+NerdeezFrontend.crossDomain = NerdeezFrontend.Wormhole.create();
 
+*/
