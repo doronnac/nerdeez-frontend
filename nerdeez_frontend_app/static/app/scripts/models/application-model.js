@@ -8,7 +8,9 @@ Nerdeez.NerdeezModel = DS.Model.extend();
 
 
 Nerdeez.University = Nerdeez.NerdeezModel.extend({
-	title: DS.attr('string')
+	title: DS.attr('string'),
+	description: DS.attr('string')
+
 });
 
 //used for cross domain communication

@@ -64,6 +64,9 @@ Nerdeez.SearchuniversityView = Nerdeez.NerdeezView.extend({
 	//@property {Array} holds the content of the combo
 	universityTitleContent: null,
 	
+	//@property {Array} holds a search result
+	searchA: null,
+	
 	//@property {function}
 	success: function(){
 			$('#update-status').text('Success!');
@@ -82,6 +85,7 @@ Nerdeez.SearchuniversityView = Nerdeez.NerdeezView.extend({
 		this._super();
 		
 		this.set('universityTitleContent', Nerdeez.University.find());
+		this.set('searchA', Nerdeez.University.find({title: "a"}));
 	},
 	
 	/*
