@@ -30,10 +30,16 @@
 	  		<!--<input class="span2" type="text" placeholder="New University Title">-->
 	  		{{
 	  			view Ember.TextField
+	  			placeholder = "Update University Name"
 	  			valueBinding="controller.description"
-	  			prompt="New university title"
 	  		}}
 	  		<hr />
+	  		{{
+	  			view Ember.TextField
+	  			placeholder = "Search University"
+	  			valueBinding="controller.search"
+	  			action="controller.searchUniversity"
+	  		}}
 	  		{{view.example}}
   			<button type="submit" class="btn" {{action updateUniversity target="view"}}>Update Title</button>
   			<button type="submit" class="btn" {{action createUniversity target="controller"}}>Create University</button>

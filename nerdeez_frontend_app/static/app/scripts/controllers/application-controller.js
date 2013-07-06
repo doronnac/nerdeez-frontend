@@ -21,6 +21,8 @@ NerdeezFrontend.SearchuniversityController = Ember.ArrayController.extend({
 	
 	//@member {string}fullTitle
 	description: null,
+	
+	search: '',
 
 	/**
 	 * when the user clicks to update the university
@@ -68,5 +70,11 @@ NerdeezFrontend.SearchuniversityController = Ember.ArrayController.extend({
 		university.set('title', this.get('description'));
 		university.transaction.commit();
 		this.logStatus(university, success, failure);
+	},
+	
+	searchuniversity: function(){
+		console.log('searchUniversity');
+		var university = this.get('search');
+		this.set(uniersity, NerdeezFrontend.University.find());
 	}
 });
