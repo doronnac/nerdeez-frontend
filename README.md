@@ -1,2 +1,2 @@
-nerdeez-frontend
+tutorial-frontend
 ================

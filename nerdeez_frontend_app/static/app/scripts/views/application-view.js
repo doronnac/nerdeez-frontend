@@ -61,9 +61,6 @@ NerdeezFrontend.HomeView = NerdeezFrontend.NerdeezFrontendView.extend({
 NerdeezFrontend.SearchuniversityView = NerdeezFrontend.NerdeezFrontendView.extend({
 	templateName: 'searchuniversity',
 	
-	//@property {Array} holds the content of the combo
-	universityTitleContent: null,
-	
 	//@property {function}
 	success: function(){
 			$('#update-status').text('Success!');
@@ -73,15 +70,6 @@ NerdeezFrontend.SearchuniversityView = NerdeezFrontend.NerdeezFrontendView.exten
 	failure: function(){
 			$('#update-status').text('Failed!');
 			$('#update-status').fadeIn('normal');
-	},
-	
-  	/**
-	 * constructor
-	 */
-	init: function(){
-		this._super();
-		
-		this.set('universityTitleContent', NerdeezFrontend.University.find());
 	},
 	
 	/*

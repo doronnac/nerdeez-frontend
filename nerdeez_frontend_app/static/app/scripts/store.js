@@ -11,14 +11,14 @@
 */
 Adapter = Nerdeez.DjangoTastypieAdapter.extend({
     //backend server url
-    serverDomain : Nerdeez.server_url,
+    serverDomain : NerdeezFrontend.server_url,
     
     //hook for cross-domain communication
     wormhole: Nerdeez.Wormhole,
     
     //our serializer
     serializer: Nerdeez.DjangoTastypieSerializer.extend({
-        
+    	    
 		/**
 		* all the mappings will be declared here
 		*/

@@ -7,6 +7,8 @@ NerdeezFrontend.SearchuniversityController = Ember.ArrayController.extend({
 
   	// initial value
   	isExpanded: false,
+  	
+  	universityTitleContent: null,
 
   	expand: function() {
     	this.set('isExpanded', true);
@@ -22,7 +24,15 @@ NerdeezFrontend.SearchuniversityController = Ember.ArrayController.extend({
 	//@member {string}fullTitle
 	description: null,
 	
-	search: '',
+	searchResults: null,
+
+	searchQuery: null,
+	
+	init: function() {
+		this._super();
+		
+		this.set('universityTitleContent', NerdeezFrontend.University.find());
+	},
 
 	/**
 	 * when the user clicks to update the university
@@ -72,9 +82,10 @@ NerdeezFrontend.SearchuniversityController = Ember.ArrayController.extend({
 		this.logStatus(university, success, failure);
 	},
 	
-	searchuniversity: function(){
+	searchUniversity: function(){
 		console.log('searchUniversity');
-		var university = this.get('search');
-		this.set(uniersity, NerdeezFrontend.University.find());
-	}
+
+		this.set('searchResults', NerdeezFrontend.University.find({'search' : this.get('searchQuery')}));
+	}.observes('searchQuery')
+	
 });

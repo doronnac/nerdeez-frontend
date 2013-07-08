@@ -4,8 +4,6 @@
 	{{/each}}
 	<hr />
 	
-	{{view.searchA}}
-	
 	<hr />
 	
 	{{#if isExpanded}}
@@ -21,7 +19,7 @@
 		<form>
 			{{
 				view Ember.Select
-				contentBinding="view.universityTitleContent"
+				contentBinding="controller.universityTitleContent"
 				selectionBinding="controller.universityData"
 				prompt="Choose a university"
 				optionValuePath="content.id"
@@ -37,16 +35,20 @@
 	  		{{
 	  			view Ember.TextField
 	  			placeholder = "Search University"
-	  			valueBinding="controller.search"
-	  			action="controller.searchUniversity"
+	  			valueBinding="controller.searchQuery"
 	  		}}
-	  		{{view.example}}
   			<button type="submit" class="btn" {{action updateUniversity target="view"}}>Update Title</button>
   			<button type="submit" class="btn" {{action createUniversity target="controller"}}>Create University</button>
   			<button type="submit" class="btn" {{action deleteUniversity target="controller"}}>Delete University</button>
+
   			<div id="update-status">
   			</div>
   		</form>
+  		<hr />
+		{{#each controller.searchResults}}
+  			{{title}}
+		{{/each}}
+
 	{{else}}
   		<button {{action expand}}>Modify Universities (Show)</button>
 	{{/if}}

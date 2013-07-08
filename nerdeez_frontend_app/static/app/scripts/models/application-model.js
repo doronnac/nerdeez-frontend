@@ -8,8 +8,9 @@ NerdeezFrontend.NerdeezFrontendModel = DS.Model.extend();
 
 
 NerdeezFrontend.University = NerdeezFrontend.NerdeezFrontendModel.extend({
+	
 	title: DS.attr('string'),
-	//description: DS.attr('string'),
+	description: DS.attr('string'),
 	
 	fullTitle: function(){
 		return this.get('title') + this.get('description');
